@@ -1,20 +1,18 @@
 #!/bin/bash
 
+# The syntax CATEGORY:Start|End is used to provide
+# sections to the zshrc, is merely visual
+
+# STARSHIP:Start
 # Starship (cross-shell prompt)
 eval "$(starship init zsh)"
 
 # Starship configuration file
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
+# STARSHIP:End
 
-# Autocompletion
-# https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md
-# source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-# Syntax highlight
-# https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md
-# source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# Antigen plugin manager
+# ANTIGEN_PLUGIN_MANAGER:Start
+# The plugin manager for zsh
 # https://github.com/zsh-users/antigen/wiki/Installation
 source ~/.zsh/antigen.zsh
 
@@ -36,17 +34,9 @@ antigen bundle chrissicool/zsh-256color
 
 # Tell Antigen that you're done.
 antigen apply
+# ANTIGEN_PLUGIN_MANAGER:End
 
-# Environment vars
-LOCAL_ENV_VARS_PATH="$HOME/.zsh/.env"
-if [[ -f $LOCAL_ENV_VARS_PATH ]]; then
-  source "$LOCAL_ENV_VARS_PATH"
-else
-  printf "\n"
-  echo "👹 Oops! $LOCAL_ENV_VARS_PATH not found!"
-fi
-
-# Custom scripts
+# CUSTOM_SCRIPTS:Start
 # https://github.com/heldrida/my-scripts
 LOCAL_CUSTOM_SCRIPTS="$HOME/.scripts"
 if [[ -d $LOCAL_CUSTOM_SCRIPTS ]]; then
@@ -57,3 +47,23 @@ else
 
   git clone https://github.com/heldrida/my-scripts.git "$HOME"/.scripts
 fi
+# CUSTOM_SCRIPTS:End
+
+# PATH:Start
+# find the export PATH at the very end
+
+## Visual Studio Code (VSCodium)
+PATH_VSCODE="/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+
+export PATH="$PATH:$PATH_VSCODE"
+# PATH:End
+
+# ENVIRONMENT_VARIABLES:Start
+LOCAL_ENV_VARS_PATH="$HOME/.zsh/.env"
+if [[ -f $LOCAL_ENV_VARS_PATH ]]; then
+  source "$LOCAL_ENV_VARS_PATH"
+else
+  printf "\n"
+  echo "👹 Oops! $LOCAL_ENV_VARS_PATH not found!"
+fi
+# ENVIRONMENT_VARIABLES:End
