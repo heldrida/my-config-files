@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Starship (cross-shell prompt)
 eval "$(starship init zsh)"
 
@@ -36,10 +38,22 @@ antigen bundle chrissicool/zsh-256color
 antigen apply
 
 # Environment vars
-LOCAL_ENV_VARS_PATH="~/.zsh/.env"
+LOCAL_ENV_VARS_PATH="$HOME/.zsh/.env"
 if [[ -f $LOCAL_ENV_VARS_PATH ]]; then
   source "$LOCAL_ENV_VARS_PATH"
 else
   printf "\n"
   echo "👹 Oops! $LOCAL_ENV_VARS_PATH not found!"
+fi
+
+# Custom scripts
+# https://github.com/heldrida/my-scripts
+LOCAL_CUSTOM_SCRIPTS="$HOME/.scripts"
+if [[ -d $LOCAL_CUSTOM_SCRIPTS ]]; then
+  export PATH="$PATH":$(find ~/.scripts -maxdepth 3 -type d | paste -sd ":" -)
+else
+  printf "\n"
+  echo "👹 Oops! $LOCAL_CUSTOM_SCRIPTS not found!"
+
+  git clone https://github.com/heldrida/my-scripts.git "$HOME"/.scripts
 fi
