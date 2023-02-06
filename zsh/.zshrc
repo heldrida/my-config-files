@@ -52,10 +52,6 @@ fi
 # PATH:Start
 # find the export PATH at the very end
 
-## Visual Studio Code (VSCodium)
-PATH_VSCODE="/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
-
-export PATH="$PATH:$PATH_VSCODE"
 # PATH:End
 
 # ENVIRONMENT_VARIABLES:Start
@@ -67,3 +63,11 @@ else
   echo "👹 Oops! $LOCAL_ENV_VARS_PATH not found!"
 fi
 # ENVIRONMENT_VARIABLES:End
+
+# ALIASES:Start
+# Aliases
+
+# Visual Studio Code (VSCodium)
+alias code="codium"
+
+# ALIASES:End
