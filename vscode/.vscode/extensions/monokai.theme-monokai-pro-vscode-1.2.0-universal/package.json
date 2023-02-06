@@ -170,11 +170,11 @@
 		"id": "f5d7ffda-c1d6-4070-ba80-803c705a1ee6",
 		"publisherId": "f1aa9b60-e034-4838-a0dc-4a6a074cf48e",
 		"publisherDisplayName": "monokai",
-		"targetPlatform": "universal",
+		"targetPlatform": "undefined",
 		"isApplicationScoped": false,
-		"updated": false,
+		"updated": true,
 		"isPreReleaseVersion": false,
-		"installedTimestamp": 1675690110366,
+		"installedTimestamp": 1675703824552,
 		"preRelease": false
 	}
 }

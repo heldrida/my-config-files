@@ -82,11 +82,11 @@
 		"id": "464f4ac7-af65-4aa9-9907-4ba7fa419085",
 		"publisherId": "87bfa971-0ee5-4ec2-afdb-1d26a8959fa4",
 		"publisherDisplayName": "bungcip",
-		"targetPlatform": "universal",
+		"targetPlatform": "undefined",
 		"isApplicationScoped": false,
-		"updated": false,
+		"updated": true,
 		"isPreReleaseVersion": false,
-		"installedTimestamp": 1675690845167,
+		"installedTimestamp": 1675703824545,
 		"preRelease": false
 	}
 }

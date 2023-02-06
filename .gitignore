@@ -1,6 +1,6 @@
 iterm2
-vscodium/User/History/**/*
-vscodium/User/globalStorage/**/*
-vscodium/User/workspaceStorage/**/*
-vscodium/User/snippets/**/*
+vscode/User/History/**/*
+vscode/User/globalStorage/**/*
+vscode/User/workspaceStorage/**/*
+vscode/User/snippets/**/*
 node_modules

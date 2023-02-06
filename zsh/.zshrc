@@ -79,7 +79,6 @@ fi
 # ALIASES:Start
 # Aliases
 
-# Visual Studio Code (VSCodium)
-alias code="codium"
-
+# Visual Studio Code
+alias code="open -a \"Visual Studio Code\""
 # ALIASES:End
