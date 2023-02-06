@@ -14,3 +14,14 @@ During the time of creation it was setup by:
 # Fonts
 
 There's also detailed information about the fonts used, in the context of the terminal emulator Kitty which supports it.
+
+# Get started
+
+Check the separate repositories for more detailed setup information, e.g. Kitty requires the `kitty-themes` submodule which needs to be pulled or cloned manually.
+
+The zsh profile is preferred to be symlinked for separation of concerns (as I'm tracking changes in the `.config` file and not in the $HOME directory, which usually is more cluttered with other system files)
+
+```sh
+ln -s .config/zsh/.zshrc ./.zshrc
+```
+
