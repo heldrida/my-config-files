@@ -47,6 +47,18 @@ else
 
   git clone https://github.com/heldrida/my-scripts.git "$HOME"/.scripts
 fi
+
+for dir in $HOME/.scripts/*; do
+  if [[ ! -d $dir ]]; then
+    continue;
+  fi
+
+  for scriptFile in $dir/*; do
+    if [[ $scriptFile == *.sh ]]; then
+      source "$scriptFile"
+    fi
+  done
+done
 # CUSTOM_SCRIPTS:End
 
 # PATH:Start
