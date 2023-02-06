@@ -1,4 +1,4 @@
-# Config files
+# 🌈 Config files 🦄
 
 The `~/.config` repository to keep track of the state of my system configuration and mainly customisation settings, which previously existed in separate repositories.
 
