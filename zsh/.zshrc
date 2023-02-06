@@ -33,4 +33,13 @@ antigen bundle chrissicool/zsh-256color
 # antigen theme robbyrussell
 
 # Tell Antigen that you're done.
-# antigen apply
+antigen apply
+
+# Environment vars
+LOCAL_ENV_VARS_PATH="~/.zsh/.env"
+if [[ -f $LOCAL_ENV_VARS_PATH ]]; then
+  source "$LOCAL_ENV_VARS_PATH"
+else
+  printf "\n"
+  echo "👹 Oops! $LOCAL_ENV_VARS_PATH not found!"
+fi
