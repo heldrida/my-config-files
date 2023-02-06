@@ -1,1 +1,5 @@
 iterm2
+vscodium/User/History/**/*
+vscodium/User/globalStorage/**/*
+vscodium/User/workspaceStorage/**/*
+vscodium/User/snippets/**/*
