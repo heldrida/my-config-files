@@ -82,3 +82,8 @@ fi
 # Visual Studio Code
 alias code="open -a \"Visual Studio Code\""
 # ALIASES:End
+
+# Command-line translator using Google Translate,
+# Bing Translator, Yandex.Translate, etc
+# requires `gawk`
+antigen bundle soimort/translate-shell@develop
