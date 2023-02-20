@@ -234,3 +234,6 @@ set number
 " can also use `set rnu` and `set rnu!!` to toggle
 set relativenumber 
 
+" Ignore search case
+set ignorecase
+
