@@ -4,3 +4,5 @@ vscode/User/globalStorage/**/*
 vscode/User/workspaceStorage/**/*
 vscode/User/snippets/**/*
 node_modules
+configstore
+grammarly-languageserver
