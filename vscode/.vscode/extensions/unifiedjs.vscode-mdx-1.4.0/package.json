@@ -1,0 +1,154 @@
+{
+	"name": "vscode-mdx",
+	"version": "1.4.0",
+	"displayName": "MDX",
+	"description": "Language support for MDX",
+	"categories": [
+		"Programming Languages"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/mdx-js/mdx-analyzer.git",
+		"directory": "packages/vscode-mdx"
+	},
+	"qna": "https://github.com/orgs/mdx-js/discussions",
+	"author": "JounQin",
+	"publisher": "unifiedjs",
+	"sponsor": {
+		"url": "https://opencollective.com/unified"
+	},
+	"license": "MIT",
+	"private": true,
+	"engines": {
+		"vscode": ">=1.0.0"
+	},
+	"main": "out/extension.js",
+	"keywords": [
+		"mdx",
+		"markdown"
+	],
+	"icon": "assets/mdx.png",
+	"activationEvents": [
+		"onLanguage:javascript",
+		"onLanguage:javascriptreact",
+		"onLanguage:mdx",
+		"onLanguage:typescript",
+		"onLanguage:typescriptreact"
+	],
+	"vsce": {
+		"dependencies": false
+	},
+	"scripts": {
+		"build": "esbuild extension=./src/extension.js language-server=@mdx-js/language-server --bundle --platform=node --target=node16 --external:vscode --outdir=out",
+		"build:debug": "npm run copy-libs && npm run build -- --sourcemap",
+		"copy-libs": "cpy '../../node_modules/typescript/lib/lib.*.d.ts' out/",
+		"generate": "node --conditions development ./script/build.mjs",
+		"vscode:prepublish": "npm run copy-libs && npm run build -- --minify"
+	},
+	"devDependencies": {
+		"@types/node": "^18.0.0",
+		"@types/vscode": "^1.0.0",
+		"@vscode/vsce": "^2.0.0",
+		"cpy-cli": "^4.0.0",
+		"esbuild": "^0.16.0",
+		"ovsx": "^0.8.0",
+		"undici": "^5.0.0",
+		"vscode-languageclient": "^8.0.0"
+	},
+	"contributes": {
+		"configuration": [
+			{
+				"title": "MDX",
+				"properties": {
+					"mdx.experimentalLanguageServer": {
+						"type": "boolean",
+						"default": false,
+						"description": "Enable experimental IntelliSense support for MDX files."
+					}
+				}
+			}
+		],
+		"languages": [
+			{
+				"id": "mdx",
+				"aliases": [
+					"MDX"
+				],
+				"extensions": [
+					".mdx"
+				],
+				"configuration": "./language-configuration.json",
+				"icon": {
+					"dark": "./assets/file-icon.svg",
+					"light": "./assets/file-icon.svg"
+				}
+			}
+		],
+		"jsonValidation": [
+			{
+				"fileMatch": "tsconfig.json",
+				"url": "./tsconfig.schema.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "mdx",
+				"scopeName": "source.mdx",
+				"path": "./syntaxes/source.mdx.tmLanguage",
+				"#1": "note: the below list maps TextMate scopes to VS Code Language IDs (<https://code.visualstudio.com/docs/languages/identifiers>), which does not affect syntax highlighting, but affects for example how comments work.",
+				"#2": "note: `graphql`, `kotlin`, `toml` have no names in that list, but do work with the most popular extension.",
+				"#3": "note: we map to JSX-enabled flavors of `js` and `ts`",
+				"#4": "note: I have no clue how to test `vbnet` (visual basic), I cannot find extensions",
+				"embeddedLanguages": {
+					"meta.embedded.c": "c",
+					"meta.embedded.cpp": "cpp",
+					"meta.embedded.cs": "csharp",
+					"meta.embedded.css": "css",
+					"meta.embedded.diff": "diff",
+					"meta.embedded.go": "go",
+					"meta.embedded.graphql": "graphql",
+					"meta.embedded.html": "html",
+					"meta.embedded.ini": "ini",
+					"meta.embedded.java": "java",
+					"meta.embedded.js": "javascriptreact",
+					"meta.embedded.json": "json",
+					"meta.embedded.kotlin": "kotlin",
+					"meta.embedded.less": "less",
+					"meta.embedded.lua": "lua",
+					"meta.embedded.makefile": "makefile",
+					"meta.embedded.md": "markdown",
+					"meta.embedded.mdx": "mdx",
+					"meta.embedded.objc": "objective-c",
+					"meta.embedded.perl": "perl",
+					"meta.embedded.php": "php",
+					"meta.embedded.python": "python",
+					"meta.embedded.r": "r",
+					"meta.embedded.ruby": "ruby",
+					"meta.embedded.rust": "rust",
+					"meta.embedded.scss": "scss",
+					"meta.embedded.shell": "shellscript",
+					"meta.embedded.sql": "sql",
+					"meta.embedded.svg": "xml",
+					"meta.embedded.swift": "swift",
+					"meta.embedded.toml": "toml",
+					"meta.embedded.ts": "typescriptreact",
+					"meta.embedded.tsx": "typescriptreact",
+					"meta.embedded.vbnet": "vb",
+					"meta.embedded.xml": "xml",
+					"meta.embedded.yaml": "yaml"
+				}
+			}
+		]
+	},
+	"__metadata": {
+		"id": "af8cfc85-cb72-45d0-bae2-9a98cd0c69f3",
+		"publisherId": "207bcd0f-c1b5-4dc9-ab76-47615c59238d",
+		"publisherDisplayName": "unified",
+		"targetPlatform": "undefined",
+		"isApplicationScoped": false,
+		"updated": true,
+		"isPreReleaseVersion": false,
+		"installedTimestamp": 1688735635056,
+		"preRelease": false
+	}
+}

@@ -8,5 +8,11 @@
         "**/*.mdx"
     ],
     "grammarly.config.suggestions.UnnecessaryEllipses": true,
-    "grammarly.config.suggestions.ConjunctionAtStartOfSentence": true
+    "grammarly.config.suggestions.ConjunctionAtStartOfSentence": true,
+    "editor.tabSize": 2,
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
+    "[python]": {
+        "editor.formatOnType": true
+    }
 }
