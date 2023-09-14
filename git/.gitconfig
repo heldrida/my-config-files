@@ -1,0 +1,7 @@
+# This is Git's per-user configuration file.
+[user]
+	name = Helder Oliveira
+	email = heldrida@gmail.com
+
+[push]
+    autoSetupRemote = true
