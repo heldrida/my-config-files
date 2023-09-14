@@ -63,7 +63,13 @@ done
 
 # PATH:Start
 # find the export PATH at the very end
+export PATH="$HOME/.deno/bin:$PATH"
+# bun completions
+[ -s "/Users/punkbit/.bun/_bun" ] && source "/Users/punkbit/.bun/_bun"
 
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
 # PATH:End
 
 # ENVIRONMENT_VARIABLES:Start
@@ -87,3 +93,6 @@ alias code="open -a \"Visual Studio Code\""
 # Bing Translator, Yandex.Translate, etc
 # requires `gawk`
 antigen bundle soimort/translate-shell@develop
+
+# NVM on startup
+source $(brew --prefix nvm)/nvm.sh
