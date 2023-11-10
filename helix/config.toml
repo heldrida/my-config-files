@@ -10,18 +10,21 @@ auto-info = true
 bufferline = "multiple"
 
 [editor.indent-guides]
-render = true
-character = "╎"
+render = false
 
 [editor.cursor-shape]
 insert = "bar"
 normal = "block"
 select = "underline"
 
+[editor.soft-wrap]
+enable = true
+
 [keys.normal]
 # Use system clipboard
-y = "yank_main_selection_to_clipboard"
+# y = "yank_main_selection_to_clipboard"
 p = "paste_clipboard_before"
+
 # Move line up or down
 C-j = ["extend_to_line_bounds", "delete_selection", "paste_after"]
 C-k = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"] 
