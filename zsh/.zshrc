@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # The syntax CATEGORY:Start|End is used to provide
 # sections to the zshrc, is merely visual
@@ -40,7 +40,7 @@ antigen apply
 # https://github.com/heldrida/my-scripts
 LOCAL_CUSTOM_SCRIPTS="$HOME/.scripts"
 if [[ -d $LOCAL_CUSTOM_SCRIPTS ]]; then
-  export PATH="$PATH":$(find ~/.scripts -maxdepth 3 -type d | paste -sd ":" -)
+  export PATH="$PATH":$(find ~/.scripts -maxdepth 3 -type d -not -path "*.git*" | paste -sd ":" -)
 else
   printf "\n"
   echo "👹 Oops! $LOCAL_CUSTOM_SCRIPTS not found!"
@@ -96,3 +96,6 @@ antigen bundle soimort/translate-shell@develop
 
 # NVM on startup
 source $(brew --prefix nvm)/nvm.sh
+
+# Zellij
+eval "$(zellij setup --generate-auto-start zsh)"
