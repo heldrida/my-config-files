@@ -6,3 +6,20 @@ name = "typescript"
 formatter = { command = 'npx', args = ["prettier", "--parser", "typescript"] }
 indent = { tab-width = 2, unit = "\t" }
 auto-format = true
+
+[[language]]
+name = "python"
+language-servers = [ "pyright", "ruff" ]
+
+[language-server.pyright.config.python.analysis]
+typeCheckingMode = "basic"
+
+[language-server.ruff]
+command = "ruff-lsp"
+
+[language-server.ruff.config.settings]
+args = ["--ignore", "E501"]
+
+[language.formatter]
+command = "black"
+args = ["--line-length", "88", "--quiet", "-"]
