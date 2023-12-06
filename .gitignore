@@ -1,8 +1,5 @@
 iterm2
-vscode/User/History/**/*
-vscode/User/globalStorage/**/*
-vscode/User/workspaceStorage/**/*
-vscode/User/snippets/**/*
+vscode
 node_modules
 configstore
 grammarly-languageserver
