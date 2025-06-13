@@ -1,0 +1,11 @@
+theme = Monokai Remastered
+
+# Font
+font-family = FiraCode Nerd Font
+font-style = Regular
+font-size = 18
+font-thicken = true
+
+# Cursor
+cursor-opacity = 0.8
+cursor-style = block
