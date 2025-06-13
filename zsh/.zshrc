@@ -96,6 +96,15 @@ antigen bundle soimort/translate-shell@develop
 
 # NVM on startup
 source $(brew --prefix nvm)/nvm.sh
+nvm use default
 
 # Zellij
 eval "$(zellij setup --generate-auto-start zsh)"
+
+# pnpm
+export PNPM_HOME="/Users/punkbit/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
