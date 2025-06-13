@@ -1,25 +1,95 @@
+[language-server.zls]
+command = "/Users/punkbit/.zig/zls/zig-out/bin/zls"
+
+# Tailwind CSS Language Server
+[language-server.tailwindcss-ls]
+command = "tailwindcss-language-server"
+args = ["--stdio"]
+
+# Astro Language Server 
+[language-server.astro-ls]
+command = "astro-ls"
+args = ["--stdio"]
+
+[language-server.astro-ls.config]
+environment = "node"
+
+[language-server.astro-ls.config.typescript]
+tsdk = "/Users/punkbit/.nvm/versions/node/v20.18.0/lib/node_modules/typescript/lib"
+
+[language-server.astro-ls.config.preferences]
+includeCompletionsForModuleExports = true
+includeCompletionsForImportStatements = true
+
+# TypeScript Language Server
+[language-server.typescript-language-server]
+command = "typescript-language-server"
+args = ["--stdio"]
+
+# HTML Language Server
+[language-server.vscode-html-language-server]
+command = "vscode-html-language-server"
+args = ["--stdio"]
+
+# CSS Language Server
+[language-server.vscode-css-language-server]
+command = "vscode-css-language-server"
+args = ["--stdio"]
+
+# Rust configuration
 [[language]]
 name = "rust"
-
-[[language]]
-name = "typescript"
-formatter = { command = 'npx', args = ["prettier", "--parser", "typescript"] }
-indent = { tab-width = 2, unit = "\t" }
 auto-format = true
 
+[language-server.rust-analyzer.config.check]
+command = "clippy"
+
+# TypeScript configuration
 [[language]]
-name = "python"
-language-servers = [ "pyright", "ruff" ]
+name = "typescript"
+formatter = { command = 'npx', args = ["prettier", "--config", ".prettierrc"] }
+auto-format = true
+language-servers = ["typescript-language-server", "tailwindcss-ls"]
 
-[language-server.pyright.config.python.analysis]
-typeCheckingMode = "basic"
+# JavaScript configuration
+[[language]]
+name = "javascript"
+formatter = { command = 'npx', args = ["prettier", "--config", ".prettierrc"] }
+auto-format = true
+language-servers = ["typescript-language-server", "tailwindcss-ls"]
 
-[language-server.ruff]
-command = "ruff-lsp"
+# Astro configuration with both Astro LS and TypeScript support
+[[language]]
+name = "astro"
+auto-format = true
+formatter = { command = 'npx', args = ["prettier", "--config", ".prettierrc", "--plugin", "prettier-plugin-astro"] }
+language-servers = ["astro-ls", "typescript-language-server", "tailwindcss-ls"]
+file-types = ["astro"]
+roots = ["package.json", "tsconfig.json", "astro.config.mjs", "astro.config.js"]
+comment-token = "<!--"
+block-comment-tokens = { start = "<!--", end = "-->" }
 
-[language-server.ruff.config.settings]
-args = ["--ignore", "E501"]
+# HTML configuration
+[[language]]
+name = "html"
+language-servers = ["vscode-html-language-server", "tailwindcss-ls"]
 
-[language.formatter]
-command = "black"
-args = ["--line-length", "88", "--quiet", "-"]
+# CSS configuration
+[[language]]
+name = "css"
+language-servers = ["vscode-css-language-server", "tailwindcss-ls"]
+
+# JSX configuration
+[[language]]
+name = "jsx"
+language-servers = ["typescript-language-server", "tailwindcss-ls"]
+
+# TSX configuration
+[[language]]
+name = "tsx"
+language-servers = ["typescript-language-server", "tailwindcss-ls"]
+
+# Todo.txt configuration
+[[language]]
+name = "todotxt"
+auto-format = false
